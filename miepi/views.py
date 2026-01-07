@@ -94,14 +94,14 @@ class InscritoCreateView(LoginRequiredMixin, View):
         )
 
         # EMAIL (aislado)
-        #try:
-         #   enviar_correo_registro(inscrito)
-        #except Exception as e:
-        #    print("Error enviando correo:", e)
-         #   messages.warning(
-          #      request,
-           #     "Registro creado, pero el correo no pudo enviarse."
-           # )
+        try:
+            enviar_correo_registro(inscrito)
+        except Exception as e:
+            print("Error enviando correo:", e)
+            messages.warning(
+                request,
+                "Registro creado, pero el correo no pudo enviarse."
+           )
 
         messages.success(
             request,
