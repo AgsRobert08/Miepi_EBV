@@ -13,7 +13,7 @@ class Inscrito(models.Model):
         ('Masculino', 'Masculino'),
         ('Femenino', 'Femenino'),
     ]
-    genero = models.CharField(max_length=10, choices=GENEROS)
+    genero = models.CharField(max_length=50, choices=GENEROS)
 
     ZONAS = [
         ('CENTRAL', 'CENTRAL'),
