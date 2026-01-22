@@ -93,8 +93,8 @@ class InscritoCreateView(LoginRequiredMixin, View):
             save=True
         )
 
-        # EMAIL (aislado)
         try:
+            print("Ejecutando  funcion de enviar al correo")
             enviar_correo_registro(inscrito)
         except Exception as e:
             print("Error enviando correo:", e)
