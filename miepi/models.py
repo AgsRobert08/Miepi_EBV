@@ -13,7 +13,7 @@ class Inscrito(models.Model):
         ('Masculino', 'Masculino'),
         ('Femenino', 'Femenino'),
     ]
-    genero = models.CharField(max_length=50, choices=GENEROS)
+    genero = models.CharField(max_length=150, choices=GENEROS)
 
     ZONAS = [
         ('CENTRAL', 'CENTRAL'),
@@ -52,16 +52,16 @@ class Inscrito(models.Model):
         ('CENTRO_SUR', 'CENTRO Y SUDAMÉRICA'),
     ]
 
-    zona = models.CharField(max_length=100, choices=ZONAS, blank=True, null=True)
-    subzona = models.CharField(max_length=100, blank=True, null=True)
+    zona = models.CharField(max_length=200, choices=ZONAS, blank=True, null=True)
+    subzona = models.CharField(max_length=200, blank=True, null=True)
 
     otra_denominacion = models.BooleanField(default=False)
-    denominacion = models.CharField(max_length=150, blank=True, null=True)
+    denominacion = models.CharField(max_length=200, blank=True, null=True)
 
-    iglesia = models.CharField(max_length=150, null=True, blank=True)
-    pastor = models.CharField(max_length=150, null=True, blank=True)
+    iglesia = models.CharField(max_length=200, null=True, blank=True)
+    pastor = models.CharField(max_length=200, null=True, blank=True)
 
-    telefono = models.CharField(max_length=20, unique=True)
+    telefono = models.CharField(max_length=200, unique=True)
     correo_electronico = models.EmailField(null=True, blank=True)
 
     GRADOS = [
@@ -86,10 +86,10 @@ class Inscrito(models.Model):
         ('EG_ELGIN', 'EGRESADO ITE CAMPUS ELGIN, IL'),
         ('SIN_RANGO', 'SIN RANGO'),
     ]
-    grado = models.CharField(max_length=100, choices=GRADOS)
+    grado = models.CharField(max_length=200, choices=GRADOS)
 
-    periodo = models.CharField(max_length=50, null=True)
-    monto = models.DecimalField(max_digits=8, decimal_places=2)
+    periodo = models.CharField(max_length=200, null=True)
+    monto = models.DecimalField(max_digits=100, decimal_places=2)
 
     qr_image = models.ImageField(upload_to=qr_upload_path, blank=True, null=True)
 
