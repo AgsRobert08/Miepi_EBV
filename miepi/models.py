@@ -10,86 +10,86 @@ class Inscrito(models.Model):
     nombre = models.CharField(max_length=150, null=True)
 
     GENEROS = [
-        ('Masculino', 'Masculino'),
-        ('Femenino', 'Femenino'),
+        ('M', 'Masculino'),
+        ('F', 'Femenino'),
     ]
-    genero = models.CharField(max_length=150, choices=GENEROS)
+    genero = models.CharField(max_length=2, choices=GENEROS)
 
     ZONAS = [
-        ('CENTRAL', 'CENTRAL'),
+        ('CEN', 'CENTRAL'),
         ('CDMX', 'CD. DE MEX.'),
-        ('PUEBLA', 'PUEBLA, PUE.'),
-        ('XALAPA', 'XALAPA, VER.'),
-        ('MISANTLA', 'MISANTLA, VER.'),
-        ('ALTOTONGA', 'ALTOTONGA, VER.'),
-        ('JUCHIQUE', 'JUCHIQUE DE FERRER, VER.'),
-        ('POZA_RICA', 'POZA RICA, VER.'),
-        ('CUERNAVACA', 'CUERNAVACA, MOR.'),
-        ('URUAPAN', 'URUAPAN, MICH.'),
-        ('CARDENAS', 'CARDENAS, TAB.'),
-        ('GUADALAJARA', 'GUADALAJARA, JAL.'),
-        ('SILAO', 'SILAO, GTO.'),
-        ('PACHUCA', 'PACHUCA, HGO.'),
-        ('CANCUN', 'CANCÚN, Q. R.'),
-        ('JUAREZ', 'CIUDAD JUÁREZ, CHIH.'),
-        ('MATIAS_ROMERO', 'MATÍAS ROMERO, OAX.'),
-        ('CHILPANCINGO', 'CHILPANCINGO, GRO.'),
-        ('TIJUANA', 'TIJUANA, B.C.'),
-        ('REYNOSA', 'REYNOSA, TAMPS.'),
-        ('TOLUCA', 'TOLUCA, EDO. DE MEX.'),
-        ('OAXACA', 'OAXACA, OAX.'),
-        ('ELGIN', 'ELGIN ILLINOIS, EUA'),
-        ('TAPACHULA', 'TAPACHULA, CHIS.'),
-        ('CABO', 'CABO SAN LUCAS, B.C.S.'),
-        ('TEZIUTLAN', 'TEZIUTLÁN, PUE.'),
-        ('TAMPICO', 'TAMPICO, TAMPS.'),
-        ('VERACRUZ', 'VERACRUZ, VER.'),
-        ('TOPILEJO', 'TOPILEJO, CD. MEX.'),
-        ('NEZA', 'CIUDAD NEZAHUALCÓYOTL, EDOMEX'),
-        ('MIRAFLORES', 'MIRAFLORES, EDOMEX'),
-        ('CALPULALPAN', 'CALPULALPAN, TLAX.'),
-        ('COYOTEPEC', 'COYOTEPEC, EDOMEX'),
-        ('CENTRO_SUR', 'CENTRO Y SUDAMÉRICA'),
+        ('PUE', 'PUEBLA, PUE.'),
+        ('XAL', 'XALAPA, VER.'),
+        ('MIS', 'MISANTLA, VER.'),
+        ('ALT', 'ALTOTONGA, VER.'),
+        ('JUC', 'JUCHIQUE DE FERRER, VER.'),
+        ('POZ', 'POZA RICA, VER.'),
+        ('CUE', 'CUERNAVACA, MOR.'),
+        ('URU', 'URUAPAN, MICH.'),
+        ('CAR', 'CARDENAS, TAB.'),
+        ('GDL', 'GUADALAJARA, JAL.'),
+        ('SIL', 'SILAO, GTO.'),
+        ('PAC', 'PACHUCA, HGO.'),
+        ('CAN', 'CANCÚN, Q. R.'),
+        ('JUA', 'CIUDAD JUÁREZ, CHIH.'),
+        ('MAT', 'MATÍAS ROMERO, OAX.'),
+        ('CHP', 'CHILPANCINGO, GRO.'),
+        ('TIJ', 'TIJUANA, B.C.'),
+        ('REY', 'REYNOSA, TAMPS.'),
+        ('TOL', 'TOLUCA, EDO. DE MEX.'),
+        ('OAX', 'OAXACA, OAX.'),
+        ('ELG', 'ELGIN ILLINOIS, EUA'),
+        ('TAP', 'TAPACHULA, CHIS.'),
+        ('CAB', 'CABO SAN LUCAS, B.C.S.'),
+        ('TEZ', 'TEZIUTLÁN, PUE.'),
+        ('TAM', 'TAMPICO, TAMPS.'),
+        ('VER', 'VERACRUZ, VER.'),
+        ('TOP', 'TOPILEJO, CD. MEX.'),
+        ('NEZ', 'CIUDAD NEZAHUALCÓYOTL, EDOMEX'),
+        ('MIR', 'MIRAFLORES, EDOMEX'),
+        ('CAL', 'CALPULALPAN, TLAX.'),
+        ('COY', 'COYOTEPEC, EDOMEX'),
+        ('CSU', 'CENTRO Y SUDAMÉRICA'),
     ]
 
-    zona = models.CharField(max_length=200, choices=ZONAS, blank=True, null=True)
-    subzona = models.CharField(max_length=200, blank=True, null=True)
+    zona = models.CharField(max_length=100, choices=ZONAS, blank=True, null=True)
+    subzona = models.CharField(max_length=100, blank=True, null=True)
 
     otra_denominacion = models.BooleanField(default=False)
-    denominacion = models.CharField(max_length=200, blank=True, null=True)
+    denominacion = models.CharField(max_length=150, blank=True, null=True)
 
-    iglesia = models.CharField(max_length=200, null=True, blank=True)
-    pastor = models.CharField(max_length=200, null=True, blank=True)
+    iglesia = models.CharField(max_length=150, null=True, blank=True)
+    pastor = models.CharField(max_length=150, null=True, blank=True)
 
-    telefono = models.CharField(max_length=200, unique=True)
+    telefono = models.CharField(max_length=20, unique=True)
     correo_electronico = models.EmailField(null=True, blank=True)
 
     GRADOS = [
-        ('MINISTRO', 'MINISTRO / DIACONISA'),
-        ('EG_ITE_ESC', 'EGRESADO DEL I.T.E. (Sistema Escolarizado)'),
-        ('EG_ITE_AB', 'EGRESADO DEL I.T.E. (Sistema Abierto)'),
-        ('EST_1_ESC', 'ESTUDIANTE (PRIMER AÑO) S.E.'),
-        ('EST_2_ESC', 'ESTUDIANTE (SEGUNDO AÑO) S.E.'),
-        ('EST_3_ESC', 'ESTUDIANTE (TERCER AÑO) S.E.'),
-        ('EST_1_AB', 'ESTUDIANTE (PRIMER AÑO) S. ABIERTO'),
-        ('EST_2_AB', 'ESTUDIANTE (SEGUNDO AÑO) S. ABIERTO'),
-        ('EST_3_AB', 'ESTUDIANTE (TERCER AÑO) S. ABIERTO'),
-        ('EST_4_AB', 'ESTUDIANTE (CUARTO AÑO) S. ABIERTO'),
-        ('OBRERO', 'OBRERO LAICO'),
-        ('ANCIANO', 'ANCIANO DE IGLESIA'),
-        ('OTRO', 'OTRO (ESPECIFICAR)'),
-        ('REP_ZONA', 'REPRESENTANTE DE ZONA'),
-        ('REP_SUBZONA', 'REPRESENTANTE DE SUB ZONA'),
-        ('EG_XAL_ESC', 'EGRESADO ITE CAMPUS XALAPA S. ESCOLARIZADO'),
-        ('EG_XAL_AB', 'EGRESADO ITE CAMPUS XALAPA S. ABIERTO'),
-        ('EG_SUR_ESC', 'EGRESADO ITE CAMPUS SURESTE S. ESCOLARIZADO'),
-        ('EG_ELGIN', 'EGRESADO ITE CAMPUS ELGIN, IL'),
-        ('SIN_RANGO', 'SIN RANGO'),
+        ('MIN', 'MINISTRO / DIACONISA'),
+        ('EG_ESC', 'EGRESADO DEL I.T.E. (Sistema Escolarizado)'),
+        ('EG_AB', 'EGRESADO DEL I.T.E. (Sistema Abierto)'),
+        ('EST_1E', 'ESTUDIANTE (PRIMER AÑO) S.E.'),
+        ('EST_2E', 'ESTUDIANTE (SEGUNDO AÑO) S.E.'),
+        ('EST_3E', 'ESTUDIANTE (TERCER AÑO) S.E.'),
+        ('EST_1A', 'ESTUDIANTE (PRIMER AÑO) S. ABIERTO'),
+        ('EST_2A', 'ESTUDIANTE (SEGUNDO AÑO) S. ABIERTO'),
+        ('EST_3A', 'ESTUDIANTE (TERCER AÑO) S. ABIERTO'),
+        ('EST_4A', 'ESTUDIANTE (CUARTO AÑO) S. ABIERTO'),
+        ('OBR', 'OBRERO LAICO'),
+        ('ANC', 'ANCIANO DE IGLESIA'),
+        ('OTR', 'OTRO (ESPECIFICAR)'),
+        ('REP_Z', 'REPRESENTANTE DE ZONA'),
+        ('REP_S', 'REPRESENTANTE DE SUB ZONA'),
+        ('EG_XE', 'EGRESADO ITE CAMPUS XALAPA S. ESCOLARIZADO'),
+        ('EG_XA', 'EGRESADO ITE CAMPUS XALAPA S. ABIERTO'),
+        ('EG_SE', 'EGRESADO ITE CAMPUS SURESTE S. ESCOLARIZADO'),
+        ('EG_EL', 'EGRESADO ITE CAMPUS ELGIN, IL'),
+        ('SIN_R', 'SIN RANGO'),
     ]
-    grado = models.CharField(max_length=200, choices=GRADOS)
+    grado = models.CharField(max_length=100, choices=GRADOS)
 
-    periodo = models.CharField(max_length=200, null=True)
-    monto = models.DecimalField(max_digits=100, decimal_places=2)
+    periodo = models.CharField(max_length=50, null=True)
+    monto = models.DecimalField(max_digits=8, decimal_places=2)
 
     qr_image = models.ImageField(upload_to=qr_upload_path, blank=True, null=True)
 
